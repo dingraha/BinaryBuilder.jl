@@ -1309,7 +1309,7 @@ function build_project_dict(name, version, dependencies)
         "name" => "$(name)_jll",
         "uuid" => string(jll_uuid("$(name)_jll")),
         "version" => string(version),
-        "deps" => Dict{String,Any}(dep => string(jll_uuid(dep)) for dep in dependencies),
+        "deps" => Dict{String,Any}(dep.name => string(jll_uuid(dep)) for dep in dependencies),
         # We require at least Julia 1.3+, for Pkg.Artifacts support
         "compat" => Dict{String,Any}("julia" => "1.0"),
     )
